@@ -1,1 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! - Celebration Page</title>
+    <meta name="description" content="A premium, interactive birthday celebration page created especially for you with love, memories, and surprises.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Twinkling stars background container -->
+    <div id="stars-container" class="stars-bg"></div>
+
+    <!-- Floating Audio Control Center -->
+    <header class="audio-control-panel glass" id="audio-panel">
+        <div class="audio-track-info">
+            <div class="music-icon-wrapper active" id="music-disc">
+                🎵
+            </div>
+            <div class="track-details">
+                <span class="track-title">Baar Baar Din Ye Aaye</span>
+                <span class="track-artist">Mohammed Rafi (Classic)</span>
+            </div>
+        </div>
+        <div class="audio-buttons">
+            <button id="play-pause-btn" class="control-btn" aria-label="Play Music">
+                <svg id="play-icon" viewBox="0 0 24 24" class="svg-icon"><path d="M8 5v14l11-7z"/></svg>
+                <svg id="pause-icon" viewBox="0 0 24 24" class="svg-icon hidden"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hidden YouTube Audio Player -->
+    <div id="youtube-audio-player" style="position: absolute; width: 1px; height: 1px; opacity: 0.001; pointer-events: none; left: -9999px;"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="balloon-container" id="balloons"></div>
+            <div class="hero-content">
+                <span class="badge">Celebrating a Special Day</span>
+                <h1 id="hero-title" class="animate-title">Happy Birthday, <span class="highlight">Sujit Das</span>!</h1>
+                <p id="hero-subtitle" class="wish-paragraph">Wishing you a year filled with love, laughter, and endless adventure. You make the world a brighter place!</p>
+
+            </div>
+            
+            <a href="#wish-section" class="scroll-down-indicator" aria-label="Scroll Down">
+                <div class="mouse-icon">
+                    <div class="wheel"></div>
+                </div>
+            </a>
+        </section>
+
+        <!-- Interactive Cake Section -->
+        <section class="wish-section" id="wish-section">
+            <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+            <div class="section-container">
+                <div class="wish-text-wrapper">
+                    <h2>Make a Wish & Blow</h2>
+                    <p class="section-desc">Click on each flame to blow out the candles and make your secret wish come true!</p>
+                </div>
+                
+                <!-- Interactive Realistic Cake -->
+                <div class="cake-container" id="interactive-cake">
+                    <div class="cake-wrapper-realistic">
+                        <img class="realistic-cake-img" src="photos/real_cake.png" alt="Delicious Birthday Cake">
+                        <!-- Candles overlay -->
+                        <div class="candles-wrapper">
+                            <div class="candle" id="candle-1">
+                                <div class="flame" id="flame-1"></div>
+                                <div class="wick"></div>
+                                <div class="wax"></div>
+                            </div>
+                            <div class="candle" id="candle-2">
+                                <div class="flame" id="flame-2"></div>
+                                <div class="wick"></div>
+                                <div class="wax"></div>
+                            </div>
+                            <div class="candle" id="candle-3">
+                                <div class="flame" id="flame-3"></div>
+                                <div class="wick"></div>
+                                <div class="wax"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Congratulations Card (revealed after candles are blown out) -->
+                <div class="wish-reveal-card glass hidden" id="reveal-card">
+                    <h3>✨ Your Wish is Sent! ✨</h3>
+                    <p class="wish-text">"May this year bring you closer to all your dreams, surround you with beautiful moments, and give you reasons to smile every single day."</p>
+                    <div class="sparkles-decoration">🌟 💫 ✨ 💖 ✨ 💫 🌟</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Grid Memories Section -->
+        <section class="memories-section" id="memories">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Captured Moments</h2>
+                    <p class="section-desc">A small gallery of beautiful memories we've shared.</p>
+                </div>
+                
+                <!-- Polaroid Memories Grid -->
+                <div class="polaroid-grid" id="memories-grid">
+                    <article class="polaroid-card">
+                        <div class="polaroid-img-wrapper">
+                            <img src="photos/photo1.jpg" alt="Memory One">
+                        </div>
+                        <div class="polaroid-caption">
+                            <p>A wonderful memory! 📸</p>
+                        </div>
+                    </article>
+                    <article class="polaroid-card">
+                        <div class="polaroid-img-wrapper">
+                            <img src="photos/photo2.jpg" alt="Memory Two">
+                        </div>
+                        <div class="polaroid-caption">
+                            <p>Smiles and sunshine ☀️</p>
+                        </div>
+                    </article>
+                    <article class="polaroid-card">
+                        <div class="polaroid-img-wrapper">
+                            <img src="photos/photo3.jpg" alt="Memory Three">
+                        </div>
+                        <div class="polaroid-caption">
+                            <p>Laughter is the best medicine 😂</p>
+                        </div>
+                    </article>
+                    <article class="polaroid-card">
+                        <div class="polaroid-img-wrapper">
+                            <img src="photos/photo4.jpg" alt="Memory Four">
+                        </div>
+                        <div class="polaroid-caption">
+                            <p>Another beautiful day ✨</p>
+                        </div>
+                    </article>
+                    <article class="polaroid-card">
+                        <div class="polaroid-img-wrapper">
+                            <img src="photos/photo5.jpg" alt="Memory Five">
+                        </div>
+                        <div class="polaroid-caption">
+                            <p>Moments to cherish forever 💖</p>
+                        </div>
+                    </article>
+                    <article class="polaroid-card">
+                        <div class="polaroid-img-wrapper">
+                            <img src="photos/photo6.jpg" alt="Memory Six">
+                        </div>
+                        <div class="polaroid-caption">
+                            <p>To endless adventures! 🌅</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Surprise Gift Box Section -->
+        <section class="gift-section" id="gift-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>A Little Surprise</h2>
+                    <p class="section-desc">We got you a gift! Go ahead and click the ribbon to open it.</p>
+                </div>
+                
+                <!-- 3D Gift Box -->
+                <div class="gift-box-wrapper" id="gift-box-trigger" tabindex="0" role="button" aria-label="Open Gift Box">
+                    <div class="gift-box">
+                        <div class="box-lid">
+                            <div class="lid-ribbon-horizontal"></div>
+                            <div class="lid-ribbon-vertical"></div>
+                            <div class="lid-bow">
+                                <div class="bow-left"></div>
+                                <div class="bow-right"></div>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="body-ribbon-horizontal"></div>
+                            <div class="body-ribbon-vertical"></div>
+                            <div class="box-inner-shadow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unfolded Surprise Card -->
+                <div class="surprise-msg-card glass hidden" id="surpriseMsg">
+                    <div class="msg-header">
+                        <h4>A Secret Note For You 💌</h4>
+                    </div>
+                    <div class="msg-body">
+                        <p>"Happy Birthday! Thank you for being such an incredible friend. You've always been there to brighten my darkest days, and I hope this tiny page brings a little bit of that joy back to you. Here's to making infinite more memories together! Cheers!"</p>
+                    </div>
+                    <div class="msg-footer">
+                        <span class="sign-off">With love, Subrata Das</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grand Celebration Section -->
+        <section class="celebration-section hidden" id="grand-celebration">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Grand Celebration! 🍻</h2>
+                    <p class="section-desc">Time to pop open some drinks and toast to our legendary bond!</p>
+                </div>
+                
+                <div class="celebration-grid">
+                    <!-- Beer Card: BroCode -->
+                    <div class="beer-card glass" id="brocode-card">
+                        <div class="beer-badge">LEGENDARY</div>
+                        <div class="beer-img-container">
+                            <img src="photos/beers.png" alt="BroCode Beer & Celebration Cheers" onerror="this.src='https://picsum.photos/600/400?random=5';">
+                        </div>
+                        <div class="beer-info">
+                            <h3>BroCode Premium Beer</h3>
+                            <p class="beer-desc">The ultimate drink for the ultimate bro. Strong, smooth, and brewed for the memories we'll never forget. Let's raise a glass to Sujit Das!</p>
+                            <div class="beer-meta">
+                                <span>ABV: <strong>15%</strong></span>
+                                <span>Class: <strong>Bro-Code</strong></span>
+                            </div>
+                            <button class="action-btn beer-btn" id="clink-btn">Cheers! Clink Bottles 🍻</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-wrapper">
+        <div class="footer-content">
+            <p>Made with ❤️ by <span class="highlight-footer">Subrata Das</span></p>
+            <p class="footer-copyright">&copy; 2026 Celebration Co. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Code -->
+    <script src="script.js" defer></script>
+</body>
+</html>
 
